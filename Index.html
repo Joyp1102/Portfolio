@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joy Patel — Software & Android Developer</title>
+  <meta name="description" content="Portfolio of Joy Patel — Android developer and software developer building mobile, web and machine learning solutions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f4f1eb;
+      --ink:#101010;
+      --muted:#68645f;
+      --line:#d8d2c8;
+      --card:#fbfaf7;
+      --accent:#ff6a00;
+      --soft:#ebe6de;
+      --dark:#111;
+      --radius:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:"DM Sans",system-ui,sans-serif;
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .container{width:min(1180px,calc(100% - 40px));margin:auto}
+    .nav-wrap{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(244,241,235,.86);
+      border-bottom:1px solid rgba(16,16,16,.08);
+    }
+    nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font:800 20px "Manrope";letter-spacing:-.04em}
+    .navlinks{display:flex;gap:28px;font-size:14px;font-weight:600}
+    .navlinks a{opacity:.7;transition:.2s}.navlinks a:hover{opacity:1}
+    .pill{
+      display:inline-flex;align-items:center;gap:9px;
+      border:1px solid var(--ink);border-radius:999px;padding:11px 17px;
+      font-weight:700;font-size:14px;transition:.25s;
+    }
+    .pill:hover{background:var(--ink);color:white;transform:translateY(-1px)}
+    .hero{
+      min-height:calc(100vh - 74px);
+      display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;
+      padding:70px 0 90px;
+    }
+    .eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:12px;font-weight:700;color:var(--muted)}
+    h1{
+      font:800 clamp(52px,8vw,104px)/.93 "Manrope";
+      letter-spacing:-.065em;margin:18px 0 28px;
+    }
+    .hero .lead{font-size:20px;max-width:690px;color:#3f3c39}
+    .hero-actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+    .btn{
+      border-radius:999px;padding:14px 21px;font-weight:700;font-size:15px;
+      border:1px solid var(--ink);display:inline-flex;align-items:center;gap:10px;transition:.25s;
+    }
+    .btn.primary{background:var(--ink);color:white}.btn:hover{transform:translateY(-2px)}
+    .hero-visual{
+      position:relative;min-height:570px;border-radius:38px;overflow:hidden;
+      background:linear-gradient(150deg,#111,#2a2a2a);
+      padding:28px;
+    }
+    .hero-visual::after{
+      content:"";position:absolute;inset:auto -10% -20% 20%;height:55%;
+      background:radial-gradient(circle,#ff6a00 0,rgba(255,106,0,.2) 35%,transparent 70%);
+      filter:blur(30px)
+    }
+    .phone-stack{position:relative;height:100%;z-index:2}
+    .phone-stack img{
+      position:absolute;width:54%;border-radius:28px;box-shadow:0 28px 70px rgba(0,0,0,.35);
+    }
+    .phone-stack img:nth-child(1){left:4%;top:8%;transform:rotate(-5deg)}
+    .phone-stack img:nth-child(2){right:2%;bottom:2%;transform:rotate(6deg)}
+    .floating-tag{
+      position:absolute;right:24px;top:24px;z-index:3;background:white;color:#111;
+      border-radius:999px;padding:10px 14px;font-size:12px;font-weight:700
+    }
+    .section{padding:110px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:46px}
+    .section h2{font:800 clamp(38px,5vw,70px)/1 "Manrope";letter-spacing:-.045em;margin:0}
+    .section-intro{max-width:500px;color:var(--muted);font-size:16px}
+    .project{
+      display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;
+      background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+      padding:22px;margin-bottom:28px;overflow:hidden;
+    }
+    .project:nth-child(even){grid-template-columns:1.15fr .85fr}
+    .project:nth-child(even) .project-media{order:2}
+    .project-copy{padding:28px 22px;display:flex;flex-direction:column;justify-content:center}
+    .project-index{font:700 12px "Manrope";letter-spacing:.15em;color:var(--muted);margin-bottom:18px}
+    .project h3{font:800 clamp(32px,4vw,56px)/1 "Manrope";letter-spacing:-.04em;margin:0 0 16px}
+    .project p{color:#4c4944;margin:0 0 22px;font-size:16px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+    .chip{font-size:12px;font-weight:700;padding:8px 11px;border-radius:999px;background:var(--soft)}
+    .project-media{
+      min-height:540px;border-radius:22px;overflow:hidden;position:relative;background:#131313;
+      display:grid;place-items:center;
+    }
+    .project-media img{width:100%;height:100%;object-fit:cover}
+    .project-media.mobile-grid{
+      grid-template-columns:1fr 1fr;gap:10px;padding:16px;background:#161616
+    }
+    .project-media.mobile-grid img{border-radius:18px;object-fit:cover}
+    .project-media.mobile-grid img:nth-child(1){transform:translateY(24px)}
+    .project-media.mobile-grid img:nth-child(2){transform:translateY(-24px)}
+    .project-media.report img{object-fit:cover;object-position:top}
+    .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:4px}
+    .stat{padding:14px 0;border-top:1px solid var(--line)}
+    .stat b{display:block;font:800 22px "Manrope"}
+    .stat span{font-size:12px;color:var(--muted)}
+    .case-band{
+      margin-top:30px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)
+    }
+    .case-band div{padding:20px 18px;border-right:1px solid var(--line)}
+    .case-band div:last-child{border-right:0}
+    .case-band b{display:block;font-size:13px;margin-bottom:5px}
+    .case-band span{font-size:12px;color:var(--muted)}
+    .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .skill-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;min-height:190px}
+    .skill-card h4{font:800 20px "Manrope";margin:0 0 14px}
+    .skill-card p{color:var(--muted);margin:0;font-size:14px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+    .about-big{font:800 clamp(34px,5vw,60px)/1.05 "Manrope";letter-spacing:-.045em}
+    .footer{padding:80px 0 35px;background:#111;color:white}
+    .footer h2{font:800 clamp(46px,7vw,92px)/.95 "Manrope";letter-spacing:-.055em;margin:0 0 32px}
+    .footer .muted{color:#aaa}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:end;border-top:1px solid #333;padding-top:24px;margin-top:60px}
+    .reveal{opacity:0;transform:translateY(22px);transition:.65s ease}
+    .reveal.show{opacity:1;transform:none}
+    @media(max-width:900px){
+      .navlinks{display:none}
+      .hero{grid-template-columns:1fr;padding-top:48px}
+      .hero-visual{min-height:520px}
+      .project,.project:nth-child(even){grid-template-columns:1fr}
+      .project:nth-child(even) .project-media{order:0}
+      .skills-grid{grid-template-columns:1fr 1fr}
+      .about-grid{grid-template-columns:1fr}
+      .case-band{grid-template-columns:1fr 1fr}
+      .case-band div:nth-child(2){border-right:0}
+    }
+    @media(max-width:560px){
+      .container{width:min(100% - 24px,1180px)}
+      nav{height:66px}
+      .pill.nav-cta{display:none}
+      .hero{min-height:auto;padding:46px 0 64px}
+      .hero-visual{min-height:430px;padding:16px}
+      .phone-stack img{width:62%}
+      .section{padding:74px 0}
+      .section-head{display:block}
+      .section-intro{margin-top:18px}
+      .project{padding:12px;border-radius:22px}
+      .project-copy{padding:20px 10px}
+      .project-media{min-height:420px}
+      .skills-grid{grid-template-columns:1fr}
+      .case-band{grid-template-columns:1fr}
+      .case-band div{border-right:0}
+      .footer-row{display:block}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav-wrap">
+    <div class="container">
+      <nav>
+        <a class="brand" href="#top">JOY PATEL</a>
+        <div class="navlinks">
+          <a href="#work">Work</a>
+          <a href="#skills">Skills</a>
+          <a href="#about">About</a>
+        </div>
+        <a class="pill nav-cta" href="mailto:Joypatel.1102@gmail.com">Let's talk ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="container hero">
+      <div class="reveal">
+        <div class="eyebrow">Software • Android • Machine Learning</div>
+        <h1>I build useful digital products.</h1>
+        <p class="lead">
+          Software developer with a focus on Android applications, data-driven systems and product experiences —
+          combining clean engineering with practical design.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#work">View selected work ↓</a>
+          <a class="btn" href="https://www.linkedin.com/in/joyapatel/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a class="btn" href="https://github.com/Joyp1102" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="btn" href="./Joy-Patel-Resume.pdf" target="_blank">Resume ↓</a>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="floating-tag">Featured • TKO Toy Co.</div>
+        <div class="phone-stack">
+          <img src="./tko-login.jpg" alt="TKO Toy Co app login screen">
+          <img src="./tko-home.jpg" alt="TKO Toy Co app home screen">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Selected work</div>
+            <h2>Projects that show how I think and build.</h2>
+          </div>
+          <p class="section-intro">
+            A mix of Android, enterprise UX and machine learning projects focused on real user problems, measurable outcomes and maintainable implementation.
+          </p>
+        </div>
+
+        <article class="project reveal">
+          <div class="project-copy">
+            <div class="project-index">01 / ANDROID APPLICATION</div>
+            <h3>FamCare</h3>
+            <p>
+              A medicine reminder and wellness Android application designed to help users manage medicines,
+              scheduled reminders, appointments and emergency information in one place.
+            </p>
+            <div class="chips">
+              <span class="chip">Java</span><span class="chip">Android</span><span class="chip">Firebase</span>
+              <span class="chip">Room DB</span><span class="chip">CameraX</span><span class="chip">TensorFlow Lite</span>
+            </div>
+            <div class="stat-row">
+              <div class="stat"><b>Mobile</b><span>Native Android experience</span></div>
+              <div class="stat"><b>ML</b><span>Pill recognition flow</span></div>
+              <div class="stat"><b>Alerts</b><span>Medicine reminders</span></div>
+            </div>
+          </div>
+          <div class="project-media mobile-grid">
+            <img src="./famcare-1.jpg" alt="FamCare app screen">
+            <img src="./famcare-2.jpg" alt="FamCare app screen">
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-copy">
+            <div class="project-index">02 / ANDROID + PRODUCT EXPERIENCE</div>
+            <h3>TKO Toy Co.</h3>
+            <p>
+              A mobile experience for a toy retailer combining account access, membership benefits,
+              loyalty points, events, ordering and QR-based interaction in a clean customer journey.
+            </p>
+            <div class="chips">
+              <span class="chip">Android</span><span class="chip">Mobile UI</span><span class="chip">Loyalty UX</span>
+              <span class="chip">QR Flow</span><span class="chip">Customer Experience</span>
+            </div>
+            <div class="case-band">
+              <div><b>Problem</b><span>Fragmented loyalty and store interactions</span></div>
+              <div><b>Approach</b><span>Simple mobile-first membership flow</span></div>
+              <div><b>Experience</b><span>Points, events, orders and benefits</span></div>
+              <div><b>Outcome</b><span>Clearer customer journey</span></div>
+            </div>
+          </div>
+          <div class="project-media mobile-grid">
+            <img src="./tko-benefits.jpg" alt="TKO Toy Co benefits screen">
+            <img src="./tko-profile.jpg" alt="TKO Toy Co profile screen">
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-copy">
+            <div class="project-index">03 / MACHINE LEARNING</div>
+            <h3>Dynamic Airfare Prediction</h3>
+            <p>
+              A predictive pricing workflow for airline fares using historical route and fare data.
+              The project explored feature engineering, ensemble models and robust model comparison.
+            </p>
+            <div class="chips">
+              <span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">Scikit-learn</span>
+              <span class="chip">XGBoost</span><span class="chip">Feature Engineering</span>
+            </div>
+            <div class="stat-row">
+              <div class="stat"><b>3</b><span>Main model families compared</span></div>
+              <div class="stat"><b>XGB</b><span>Strongest reported model</span></div>
+              <div class="stat"><b>2010–24</b><span>Modern-data robustness check</span></div>
+            </div>
+          </div>
+          <div class="project-media" style="background:
+              radial-gradient(circle at 30% 25%, rgba(255,106,0,.65), transparent 25%),
+              linear-gradient(135deg,#161616,#2c2c2c);padding:48px;">
+            <div style="width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;color:white">
+              <div style="font:800 clamp(36px,5vw,72px)/1 'Manrope';letter-spacing:-.05em">FARE<br>PREDICTION</div>
+              <div style="margin-top:26px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:end;height:180px">
+                <i style="height:34%;background:#fff;border-radius:8px 8px 2px 2px"></i>
+                <i style="height:49%;background:#fff;border-radius:8px 8px 2px 2px"></i>
+                <i style="height:63%;background:#fff;border-radius:8px 8px 2px 2px"></i>
+                <i style="height:52%;background:#fff;border-radius:8px 8px 2px 2px"></i>
+                <i style="height:79%;background:#fff;border-radius:8px 8px 2px 2px"></i>
+                <i style="height:94%;background:#fff;border-radius:8px 8px 2px 2px"></i>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project reveal">
+          <div class="project-copy">
+            <div class="project-index">04 / MACHINE LEARNING</div>
+            <h3>Used Car Price Prediction</h3>
+            <p>
+              Regression analysis on 42,089 vehicle listings using data cleaning, outlier handling,
+              feature engineering and multiple model families to estimate used-car prices.
+            </p>
+            <div class="chips">
+              <span class="chip">Python</span><span class="chip">Scikit-learn</span><span class="chip">Regression</span>
+              <span class="chip">Random Forest</span><span class="chip">Gradient Boosting</span>
+            </div>
+            <div class="stat-row">
+              <div class="stat"><b>42K+</b><span>Vehicle records</span></div>
+              <div class="stat"><b>6</b><span>Model approaches assessed</span></div>
+              <div class="stat"><b>80/20</b><span>Train-test split</span></div>
+            </div>
+          </div>
+          <div class="project-media report">
+            <img src="./car-results.jpg" alt="Used car model results report">
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Technical toolkit</div>
+            <h2>What I work with.</h2>
+          </div>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card reveal"><h4>Android</h4><p>Java, Android SDK, Fragments, Firebase, Firestore, Room DB, CameraX, AlarmManager, TensorFlow Lite.</p></div>
+          <div class="skill-card reveal"><h4>Backend & Web</h4><p>PHP, MySQL, REST APIs, JavaScript, HTML, CSS and responsive web development.</p></div>
+          <div class="skill-card reveal"><h4>Data & ML</h4><p>Python, Pandas, NumPy, Scikit-learn, XGBoost, regression, feature engineering and evaluation.</p></div>
+          <div class="skill-card reveal"><h4>Product & UX</h4><p>Figma, wireframes, user flows, responsive layouts and interface design with a usability-first mindset.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="reveal">
+          <div class="eyebrow">About</div>
+          <div class="about-big">Developer mindset. Product awareness. Practical execution.</div>
+        </div>
+        <div class="reveal">
+          <p>
+            I’m Joy Patel, a software developer based in Ontario, Canada. My work spans Android development,
+            web systems and machine learning, with a consistent focus on building experiences that are useful,
+            understandable and reliable.
+          </p>
+          <p>
+            I enjoy taking a problem from concept to implementation — shaping the user flow, choosing the right
+            technology, building the solution and improving it through testing.
+          </p>
+          <a class="pill" href="mailto:Joypatel.1102@gmail.com">Email me ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="eyebrow" style="color:#999">Available for software & Android opportunities</div>
+      <h2>Let’s build something useful.</h2>
+      <p class="muted">Joy Patel • Brantford, Ontario, Canada</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+        <a class="pill" style="border-color:#fff" href="https://www.linkedin.com/in/joyapatel/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a class="pill" style="border-color:#fff" href="https://github.com/Joyp1102" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a class="pill" style="border-color:#fff" href="mailto:Joypatel.1102@gmail.com">Email ↗</a>
+        <a class="pill" style="border-color:#fff" href="./Joy-Patel-Resume.pdf" target="_blank">Resume ↓</a>
+      </div>
+      <div class="footer-row">
+        <div>Portfolio • 2026</div>
+        <a class="pill" style="border-color:#fff" href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const reveal = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){entry.target.classList.add('show')}
+      })
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>reveal.observe(el));
+  </script>
+</body>
+</html>
